@@ -1,16 +1,150 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8">
-  <meta http-equiv="refresh" content="0; url=https://walink.co/pg5x0b">
-  <title>Huk Kuska</title>
-  <style>
-    body { background-color: #000000; margin: 0; }
-  </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<meta name="theme-color" content="#000000">
+<title>HUK KUSKA</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<style>
+  *{box-sizing:border-box;margin:0;padding:0;-webkit-tap-highlight-color:transparent}
+  html,body{height:100%;background:#000;overflow:hidden}
+  body{
+    height:100dvh;display:flex;align-items:center;justify-content:center;
+    font-family:'Space Mono','Courier New',monospace;color:#fff;
+    padding:env(safe-area-inset-top) 24px env(safe-area-inset-bottom);
+  }
+  .stack{display:flex;flex-direction:column;align-items:center;text-align:center;gap:clamp(22px,5dvh,44px);width:100%;max-width:420px;margin-top:-4dvh}
+
+  /* ISOTIPO */
+  #logo{width:min(54vw,38dvh,230px);aspect-ratio:1;will-change:transform;opacity:0}
+  #logo.intro{animation:impact 1.8s cubic-bezier(.76,0,.18,1) forwards}
+  @keyframes impact{
+    0%{opacity:1;transform:translateY(var(--dy)) scale(.04)}
+    38%{opacity:1;transform:translateY(var(--dy)) scale(16)}
+    100%{opacity:1;transform:translateY(0) scale(1)}
+  }
+  #logo.done{opacity:1}
+  .breath{width:100%;height:100%;animation:breathe 5s ease-in-out infinite}
+  @keyframes breathe{
+    0%,100%{transform:scale(1);opacity:.86;filter:drop-shadow(0 0 0 rgba(255,255,255,0))}
+    50%{transform:scale(1.045);opacity:1;filter:drop-shadow(0 0 14px rgba(255,255,255,.28))}
+  }
+  svg{width:100%;height:100%;display:block;overflow:visible}
+  .ghost{opacity:0}
+  .glitch svg{animation:gl .15s steps(2) 1}
+  .glitch .ghost.g1{opacity:.55;transform:translate(-120px,40px)}
+  .glitch .ghost.g2{opacity:.4;transform:translate(120px,-40px)}
+  @keyframes gl{
+    0%{transform:translate(3px,0) skewX(6deg);clip-path:inset(10% 0 55% 0)}
+    50%{transform:translate(-4px,0) skewX(-8deg);clip-path:inset(50% 0 10% 0)}
+    100%{transform:none;clip-path:inset(0)}
+  }
+
+  /* TERMINAL */
+  .status{font-size:11px;letter-spacing:.28em;color:#777;min-height:1.4em;text-transform:uppercase}
+  .cursor{display:inline-block;width:.55em;height:1em;background:#777;vertical-align:-2px;margin-left:2px;animation:blink 1s steps(1) infinite}
+  @keyframes blink{50%{opacity:0}}
+  .hook{font-size:clamp(18px,5.4vw,24px);font-weight:700;line-height:1.35;opacity:0;transition:opacity .9s ease}
+  .cta{
+    opacity:0;transition:opacity .9s ease,background .12s,color .12s;
+    font:700 14px 'Space Mono','Courier New',monospace;letter-spacing:.22em;text-transform:uppercase;
+    color:#fff;background:#000;border:1px solid rgba(255,255,255,.4);
+    padding:18px 26px;min-width:260px;cursor:pointer;touch-action:manipulation;border-radius:0
+  }
+  .show{opacity:1}
+  .cta:hover,.cta:active,.cta.flash{background:#fff;color:#000;border-color:#fff}
+  .cta.flash{animation:gl .12s steps(2) 1}
+  @media (prefers-reduced-motion:reduce){
+    .breath{animation:none}
+    #logo.intro{animation-duration:.01s}
+  }
+</style>
+<!-- GOATCOUNTER: reemplaza TU_USUARIO por hukkuska  ->  https://hukkuska.goatcounter.com/count -->
+<script data-goatcounter="https://TU_USUARIO.goatcounter.com/count" async src="https://gc.zgo.at/count.js"></script>
 </head>
 <body>
-  <script>
-    window.location.replace("https://walink.co/pg5x0b");
-  </script>
+<main class="stack">
+
+  <div id="logo" class="">
+    <div class="breath">
+<svg viewBox="-40 1240 10080 7600" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Huk Kuska">
+  <defs>
+    <g id="iso" fill="#FFFFFF">
+      <path fill-rule="nonzero" d="M5301.314,8696.496C5180.883,8693.499 5073.9,8571.246 5074.973,8450.796L5083.25,7519.395C5084.305,7398.075 5183.87,7299.389 5305.208,7299.389L5305.337,7299.389L5920.053,7299.037L6798.597,5593.873L5000.194,5585.836L3201.801,5593.873L4080.317,7299.426L4703.616,7299.389L4703.736,7299.389C4744.367,7299.389 4784.656,7309.794 4819.09,7331.372C4887.088,7373.973 4925.684,7444.672 4925.703,7521.328L4925.823,8452.739C4925.842,8574.159 4839.641,8693.481 4718.239,8696.496L3229.881,8696.496C3148.804,8698.512 3074.211,8670.266 3036.161,8598.651L2198.155,7022.298L1454.998,8367.592C1338.738,8578.044 1120.258,8697.069 895.314,8697.079C791.013,8697.088 685.371,8671.524 587.794,8617.62L329.885,8475.149C180.671,8392.722 72.495,8257.122 25.27,8093.332C-21.956,7929.532 -2.561,7757.149 79.866,7607.944L3385.717,1623.593C3414.953,1570.661 3465.277,1531.51 3523.795,1516.194L3911.208,1414.797L4302.506,1309.701C4403.902,1282.463 4507.574,1339.723 4538.494,1440.075L4657.824,1827.192L4778.246,2209.166C4796.43,2266.843 4790.094,2330.272 4760.858,2383.214L3699.045,4305.359L5000.194,4311.176L6301.353,4305.359L5239.549,2383.251C5210.304,2330.319 5203.959,2266.861 5222.143,2209.166L5342.565,1827.201L5461.895,1440.066C5492.824,1339.723 5596.468,1282.435 5697.902,1309.701L6089.134,1414.788L6476.584,1516.185C6535.112,1531.51 6585.445,1570.661 6614.69,1623.603L9920.541,7607.944C10090.695,7915.964 9978.523,8304.995 9670.503,8475.149L9412.604,8617.62C9104.557,8787.765 8715.544,8675.612 8545.4,8367.592L7802.234,7022.298L6964.228,8598.679C6927.01,8668.675 6856.302,8696.487 6777.398,8696.496L5301.314,8696.496"/>
+    </g>
+  </defs>
+  <use href="#iso" class="ghost g1" style="fill:#aaa"/>
+  <use href="#iso" class="ghost g2" style="fill:#666"/>
+  <use href="#iso"/>
+</svg>
+    </div>
+  </div>
+
+  <div class="status" id="status" aria-live="polite"><span id="typed"></span><span class="cursor"></span></div>
+  <p class="hook" id="hook">¿Estás cansado de la monotonía?</p>
+  <button class="cta" id="cta" type="button">[ Romper el ciclo ]</button>
+
+</main>
+
+<script>
+(function(){
+  var URL_WA = 'https://walink.co/pg5x0b';
+  var logo = document.getElementById('logo');
+  var typed = document.getElementById('typed');
+  var hook = document.getElementById('hook');
+  var cta = document.getElementById('cta');
+  var MSG = '[ SEÑAL DETECTADA // FRECUENCIA ACTIVA ]';
+
+  // 1) Entrada del isotipo: parte desde el centro de la pantalla
+  function intro(){
+    var r = logo.getBoundingClientRect();
+    var dy = (window.innerHeight/2) - (r.top + r.height/2);
+    logo.style.setProperty('--dy', dy + 'px');
+    logo.classList.add('intro');
+    setTimeout(function(){ logo.classList.remove('intro'); logo.classList.add('done'); }, 1800);
+    setTimeout(type, 1800);
+  }
+
+  // 2) Escritura rápida del estado del sistema
+  function type(){
+    var i = 0;
+    var t = setInterval(function(){
+      typed.textContent = MSG.slice(0, ++i);
+      if(i >= MSG.length){
+        clearInterval(t);
+        setTimeout(function(){ hook.classList.add('show'); }, 400);
+        setTimeout(function(){ cta.classList.add('show'); }, 1000);
+      }
+    }, 22);
+  }
+
+  // 3) Glitch aleatorio cada 4–6 s (150 ms)
+  function glitchLoop(){
+    setTimeout(function(){
+      logo.classList.add('glitch');
+      setTimeout(function(){ logo.classList.remove('glitch'); }, 150);
+      glitchLoop();
+    }, 4000 + Math.random()*2000);
+  }
+
+  // 4) CTA: evento GoatCounter + destello + redirección a los 120 ms
+  var fired = false;
+  cta.addEventListener('click', function(){
+    if(fired) return; fired = true;
+    cta.classList.add('flash'); logo.classList.add('glitch');
+    try{
+      if(window.goatcounter && window.goatcounter.count){
+        window.goatcounter.count({ path:'click-whatsapp', title:'CTA WhatsApp Presionado', event:true });
+      }
+    }catch(e){}
+    setTimeout(function(){ window.location.href = URL_WA; }, 120);
+  });
+
+  window.addEventListener('load', function(){ intro(); setTimeout(glitchLoop, 1800); });
+})();
+</script>
 </body>
 </html>
