@@ -62,8 +62,8 @@
     #logo.intro{animation-duration:.01s}
   }
 </style>
-<!-- GOATCOUNTER: reemplaza TU_USUARIO por hukkuska  ->  https://hukkuska.goatcounter.com/count -->
-<script data-goatcounter="https://TU_USUARIO.goatcounter.com/count" async src="https://gc.zgo.at/count.js"></script>
+<!-- UMAMI ANALYTICS: Medición sin cookies -->
+<script defer src="https://cloud.umami.is/script.js" data-website-id="504e6cc5-5ef4-42f4-823c-427877231a89"></script>
 </head>
 <body>
 <main class="stack">
@@ -130,14 +130,14 @@
     }, 4000 + Math.random()*2000);
   }
 
-  // 4) CTA: evento GoatCounter + destello + redirección a los 120 ms
+  // 4) CTA: evento Umami + destello + redirección a los 120 ms
   var fired = false;
   cta.addEventListener('click', function(){
     if(fired) return; fired = true;
     cta.classList.add('flash'); logo.classList.add('glitch');
     try{
-      if(window.goatcounter && window.goatcounter.count){
-        window.goatcounter.count({ path:'click-whatsapp', title:'CTA WhatsApp Presionado', event:true });
+      if(window.umami && typeof window.umami.track === 'function'){
+        window.umami.track('click-whatsapp', { destino: 'walink' });
       }
     }catch(e){}
     setTimeout(function(){ window.location.href = URL_WA; }, 120);
