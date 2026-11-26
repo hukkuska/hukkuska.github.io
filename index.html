@@ -25,7 +25,7 @@
     isolation:isolate;
   }
 
-  /* 1º — CAPA SUPERIOR (z-index: 30): ISOTIPO EMERGIENDO DE LAS SOMBRAS */
+  /* 1º — CAPA SUPERIOR (z-index: 30): ISOTIPO */
   .layer-logo{
     position:relative;
     z-index:30;
@@ -35,28 +35,26 @@
     width:min(54vw,38dvh,230px);
     aspect-ratio:1;
     opacity:0;
-    filter:brightness(0);
-    will-change:opacity,filter;
+    will-change:opacity;
   }
-  /* Curva continua de 2.6s: de 100% negro a 100% claro sin pausas ni zoom */
+  /* Subida de luz constante y uniforme de 0 a 1 en 2.6s sin pausas */
   #logo.emerge{
-    animation:shadowEmerge 2.6s cubic-bezier(.25,.1,.25,1) forwards;
+    animation:shadowEmerge 2.6s linear forwards;
   }
   @keyframes shadowEmerge{
-    0%{opacity:0;filter:brightness(0)}
-    100%{opacity:1;filter:brightness(1)}
+    0%{opacity:0}
+    100%{opacity:1}
   }
   #logo.done{
     opacity:1;
-    filter:brightness(1);
   }
 
-  /* Respiración orgánica activa tras emerger */
+  /* Respiración continua que arranca exactamente en opacity: 1 para evitar saltos */
   .breath{width:100%;height:100%}
   #logo.done .breath{animation:breathe 5s ease-in-out infinite}
   @keyframes breathe{
-    0%,100%{transform:scale(1);opacity:.88;filter:drop-shadow(0 0 0 rgba(255,255,255,0))}
-    50%{transform:scale(1.045);opacity:1;filter:drop-shadow(0 0 14px rgba(255,255,255,.28))}
+    0%,100%{transform:scale(1);opacity:1;filter:drop-shadow(0 0 0 rgba(255,255,255,0))}
+    50%{transform:scale(1.045);opacity:.86;filter:drop-shadow(0 0 14px rgba(255,255,255,.28))}
   }
 
   /* Glitch con capas fantasmas */
@@ -71,7 +69,7 @@
     100%{transform:none;clip-path:inset(0)}
   }
 
-  /* 2º — CAPA BASE (z-index: 10): TERMINAL DE TEXTO EN UN SOLO RENGLÓN */
+  /* 2º — CAPA BASE (z-index: 10): FRASE DE CONEXIÓN EN UN SOLO RENGLÓN */
   .layer-terminal{
     position:relative;
     z-index:10;
@@ -96,7 +94,7 @@
   }
   @keyframes blink{50%{opacity:0}}
 
-  /* 3º y 4º — CAPA INTERMEDIA/ALTA (z-index: 20): FRASE + CTA LIMPIO */
+  /* 3º y 4º — CAPA DE ACCIÓN (z-index: 20): FRASE GANCHO + CTA */
   .layer-action{
     position:relative;
     z-index:20;
@@ -126,7 +124,6 @@
     color:#fff;
     background:#000;
     border:1px solid rgba(255,255,255,.45);
-    box-shadow:none;
     padding:18px 26px;
     min-width:260px;
     cursor:pointer;
@@ -149,7 +146,7 @@
 
 <main class="stage">
 
-  <!-- 1º CAPA SUPERIOR: ISOTIPO -->
+  <!-- 1º ISOTIPO -->
   <section class="layer-logo">
     <div id="logo">
       <div class="breath">
@@ -167,12 +164,12 @@
     </div>
   </section>
 
-  <!-- 2º CAPA BASE: TERMINAL DE ESTADO -->
+  <!-- 2º FRASE DE CONEXIÓN -->
   <section class="layer-terminal">
     <div class="status" id="status" aria-live="polite"><span id="typed"></span><span class="cursor"></span></div>
   </section>
 
-  <!-- 3º y 4º CAPA DE ACCIÓN: PREGUNTA + CTA -->
+  <!-- 3º FRASE GANCHO + 4º CTA -->
   <section class="layer-action">
     <p class="hook" id="hook">¿Estás cansado de la monotonía?</p>
     <button class="cta" id="cta" type="button">[ Romper el ciclo ]</button>
@@ -189,7 +186,6 @@
   var cta = document.getElementById('cta');
   var MSG = '[ SEÑAL // ACTIVA ]';
 
-  // 1) Aparición continua desde negro total en 2.6s
   function intro(){
     logo.classList.add('emerge');
     setTimeout(function(){
@@ -197,11 +193,9 @@
       logo.classList.add('done');
     }, 2600);
 
-    // Empieza a escribir la terminal cuando el isotipo ya superó la mitad de claridad
     setTimeout(type, 1600);
   }
 
-  // 2) Escritura letra por letra y aparición secuencial de frase y botón
   function type(){
     var i = 0;
     var t = setInterval(function(){
@@ -214,7 +208,6 @@
     }, 34);
   }
 
-  // 3) Glitch aleatorio cada 4–6 s (150 ms)
   function glitchLoop(){
     setTimeout(function(){
       logo.classList.add('glitch');
@@ -223,7 +216,6 @@
     }, 4000 + Math.random()*2000);
   }
 
-  // 4) CTA: evento Umami + destello + redirección a WhatsApp
   var fired = false;
   cta.addEventListener('click', function(){
     if(fired) return; fired = true;
