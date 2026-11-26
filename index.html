@@ -49,9 +49,12 @@
     opacity:1;
   }
 
-  /* Respiración continua que arranca exactamente en opacity: 1 para evitar saltos */
-  .breath{width:100%;height:100%}
-  #logo.done .breath{animation:breathe 5s ease-in-out infinite}
+  /* Respiración activa desde el inicio (mientras emerge y de forma continua) */
+  .breath{
+    width:100%;
+    height:100%;
+    animation:breathe 5s ease-in-out infinite;
+  }
   @keyframes breathe{
     0%,100%{transform:scale(1);opacity:1;filter:drop-shadow(0 0 0 rgba(255,255,255,0))}
     50%{transform:scale(1.045);opacity:.86;filter:drop-shadow(0 0 14px rgba(255,255,255,.28))}
@@ -135,7 +138,7 @@
   .cta.flash{animation:gl .12s steps(2) 1}
 
   @media (prefers-reduced-motion:reduce){
-    #logo.done .breath{animation:none}
+    .breath{animation:none}
     #logo.emerge{animation-duration:.01s}
   }
 </style>
