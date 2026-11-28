@@ -7,7 +7,7 @@
 <title>HUK KUSKA</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@600;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Michroma&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
 <style>
   *{box-sizing:border-box;margin:0;padding:0;-webkit-tap-highlight-color:transparent}
   html,body{height:100%;background:#000;overflow:hidden}
@@ -37,7 +37,6 @@
     opacity:0;
     will-change:opacity;
   }
-  /* Subida de luz constante y uniforme de 0 a 1 en 2.6s sin pausas */
   #logo.emerge{
     animation:shadowEmerge 2.6s linear forwards;
   }
@@ -49,7 +48,7 @@
     opacity:1;
   }
 
-  /* Respiración activa desde el inicio (mientras emerge y de forma continua) */
+  /* Respiración orgánica activa */
   .breath{
     width:100%;
     height:100%;
@@ -72,7 +71,7 @@
     100%{transform:none;clip-path:inset(0)}
   }
 
-  /* 2º — CAPA BASE (z-index: 10): FRASE DE CONEXIÓN EN UN SOLO RENGLÓN */
+  /* 2º — CAPA BASE (z-index: 10): TERMINAL EN UN SOLO RENGLÓN */
   .layer-terminal{
     position:relative;
     z-index:10;
@@ -97,7 +96,7 @@
   }
   @keyframes blink{50%{opacity:0}}
 
-  /* 3º y 4º — CAPA DE ACCIÓN (z-index: 20): FRASE GANCHO + CTA */
+  /* 3º y 4º — CAPA DE ACCIÓN (z-index: 20): FRASE CON TIPOGRAFÍA DE TARJETA + CTA */
   .layer-action{
     position:relative;
     z-index:20;
@@ -106,12 +105,12 @@
     width:100%;
   }
   .hook{
-    font-family:'Space Grotesk',sans-serif;
-    font-size:clamp(22px,6.2vw,28px);
-    font-weight:700;
-    letter-spacing:-.02em;
-    line-height:1.22;
-    max-width:340px;
+    font-family:'Michroma',sans-serif;
+    font-size:clamp(15px,4.2vw,19px);
+    font-weight:400;
+    letter-spacing:.06em;
+    line-height:1.45;
+    max-width:360px;
     color:#fff;
     opacity:0;
     transform:translateY(6px);
